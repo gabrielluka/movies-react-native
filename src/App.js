@@ -1,14 +1,15 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import Home from './pages/Home';
+import {SafeAreaView, StatusBar} from 'react-native';
+import Routes from './navigation/routes';
 import {NavigationContainer} from '@react-navigation/native';
 
 const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        <Home />
+        <StatusBar barStyle="light-content" backgroundColor="#000" />
+        <Routes />
       </SafeAreaView>
     </NavigationContainer>
   );

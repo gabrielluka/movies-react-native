@@ -2,8 +2,8 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Container, IconHeader} from './style';
 
-const menuIcon = require('../../../assets/icons/menu.png');
-const searchIcon = require('../../../assets/icons/search.png');
+const menuIcon = require('../../assets/icons/menu.png');
+const searchIcon = require('../../assets/icons/search.png');
 
 const Header = () => {
   return (
