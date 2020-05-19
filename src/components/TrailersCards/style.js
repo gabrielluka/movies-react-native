@@ -18,8 +18,6 @@ const MovieCard = styled.Image`
   margin: 10px;
   width: ${Math.round((Dimensions.get('window').width * 80) / 100)}px;
   height: 180px;
-  border-radius: 10px;
-  box-shadow: 10px 5px 5px black;
 `;
 
 const PlayIcon = styled.Image`

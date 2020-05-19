@@ -1,42 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import messaging from '@react-native-firebase/messaging';
-import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import {ActivityIndicator} from 'react-native';
 import {Container} from './style';
-
 import Trailers from '../../components/TrailersCards';
 import Header from '../../components/Header';
+import HandlerNotification from '../../services/notification';
+import MoviesList from '../../components/Movies';
 
-const Home = (props) => {
-  const navigation = useNavigation();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    messaging().onNotificationOpenedApp((remoteMessage) => {
-      if (remoteMessage) {
-        navigation.navigate(remoteMessage.data.route, {
-          infoMovie: {idMovie: remoteMessage.data.idMovie},
-        });
-      }
-      setLoading(false);
-    });
-
-    messaging()
-      .getInitialNotification()
-      .then((remoteMessage) => {
-        if (remoteMessage) {
-          navigation.navigate(remoteMessage.data.route, {
-            infoMovie: {idMovie: remoteMessage.data.idMovie},
-          });
-        }
-        setLoading(false);
-      });
-
-    return () => {
-      console.log('teste');
-    };
-  }, [navigation]);
-
+const Home = () => {
+  const loading = HandlerNotification();
   if (loading) {
     return <ActivityIndicator size="large" style={{flex: 1}} />;
   }
@@ -45,6 +16,8 @@ const Home = (props) => {
     <Container>
       <Header />
       <Trailers />
+      <MoviesList title="Terror" />
+      <MoviesList title="Action" />
     </Container>
   );
 };
