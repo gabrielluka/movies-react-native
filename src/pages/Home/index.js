@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
 import {Container} from './style';
 import Trailers from '../../components/TrailersCards';
 import Header from '../../components/Header';
@@ -13,12 +13,14 @@ const Home = () => {
   }
 
   return (
-    <Container>
+    <View style={{flex: 1}}>
       <Header />
-      <Trailers />
-      <MoviesList title="Terror" />
-      <MoviesList title="Action" />
-    </Container>
+      <Container>
+        <Trailers />
+        <MoviesList title="Terror" />
+        <MoviesList title="Action" />
+      </Container>
+    </View>
   );
 };
 
