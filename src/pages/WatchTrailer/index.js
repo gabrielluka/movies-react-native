@@ -12,7 +12,11 @@ export default class WatchTrailer extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <WebView source={{uri: this.state.uriVideo}} />
+        <WebView
+          source={{uri: this.state.uriVideo}}
+          startInLoadingState={true}
+          mediaPlaybackRequiresUserAction={false}
+        />
       </View>
     );
   }
