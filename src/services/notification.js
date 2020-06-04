@@ -13,7 +13,9 @@ const HandlerNotification = () => {
           infoMovie: {idMovie: remoteMessage.data.idMovie},
         });
       }
-      setLoading(false);
+      setTimeout(()=> {
+        setLoading(false);
+      },1500)
     });
 
     messaging()
@@ -24,12 +26,15 @@ const HandlerNotification = () => {
             infoMovie: {idMovie: remoteMessage.data.idMovie},
           });
         }
-        setLoading(false);
+        setTimeout(()=> {
+          setLoading(false);
+        },1500)
       });
     return () => {
       console.log('exit');
     };
   }, [navigation]);
+
   return loading;
 };
 export default HandlerNotification;
